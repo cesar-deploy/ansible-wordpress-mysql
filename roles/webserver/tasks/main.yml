@@ -1,0 +1,11 @@
+---
+  - name: 'Instalar pacotes do sistema'
+    apt:
+      name: "{{ item }}"
+      state: latest
+    become: yes
+    with_items:
+      - apache2
+      - php
+      - php-mysql
+      - php-gd
