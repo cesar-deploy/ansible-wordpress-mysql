@@ -32,11 +32,11 @@
       state: present
       host: "{{ wp_ip }}"
     become: yes
-  - name: 'Configurar Apache para o Wordpress'
+  - name: 'Configuração de acesso ao banco'
     template:
-      src: 'templates/mysqld.cnf'
+      src: '/ansible/roles/mysql/templates/mysqld.cnf'
       dest: '/etc/mysql/mysql.conf.d/mysqld.cnf'
-  
+    become: yes 
   - name: 'Abrindo porta MYSQL 3306'
     ufw:
       rule: allow
